@@ -60,6 +60,9 @@ Works with Claude Code, Cursor, VS Code, Windsurf, and Codex.
 | React | Hooks, React Query, Zustand |
 | Vue 3 | Composition API, Pinia, Vue Query |
 | SvelteKit | Stores, load functions |
+| Angular | Standalone components, Signals, DI |
+| Astro | Islands architecture, Content Collections |
+| Nuxt | Auto-imports, Nitro server, useFetch |
 
 Each framework has specific patterns for services, state, and components.
 

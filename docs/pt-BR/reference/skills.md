@@ -1,218 +1,409 @@
-# Skills
+# Referência de Skills
 
-::: info Nota sobre Framework
-As skills sao instaladas do framework pack escolhido. Os exemplos abaixo utilizam os padroes do **pack Vue 3**. Cada pack fornece skills equivalentes adaptadas ao seu ecossistema (ex: `/dev-create-hook` no React, `/dev-create-store` no SvelteKit).
-:::
+Skills são atalhos. Digite `/skill-name` no Claude Code.
 
-Skills sao atalhos que voce invoca com `/nome-da-skill` dentro do Claude Code. Cada skill e um diretorio com um arquivo `SKILL.md` dentro de `.claude/skills/`.
+## Referência Rápida
+
+| Skill | O que faz |
+|-------|-----------|
+| `/brainstorm` | Brainstorming socrático antes de planejar |
+| `/plan` | Planejar uma feature |
+| `/tdd` | Test-driven development |
+| `/debug` | Debugar um problema |
+| `/checkpoint` | Salvar/restaurar progresso |
+| `/estimate` | Estimar custo em tokens |
+| `/finish` | Finalizar branch |
+| `/health` | Score de saúde do projeto |
+| `/remember` | Salvar uma decisão |
+| `/recall` | Relembrar decisões |
+| `/learn` | Aprender enquanto constrói |
+| `/tutorial` | Tutorial interativo |
+| `/migrate-framework` | Migrar entre frameworks |
+| `/verify` | Verificação antes de concluir (baseada em prova) |
+| `/write-skill` | Criar ou melhorar skills com TDD |
+| `/audit` | Auditoria multi-domínio de código |
+| `/onboard` | Onboarding de codebase para novos devs |
+| `/worktree` | Isolamento com git worktree para tarefas paralelas |
+
+---
+
+## Skills de Workflow
+
+### /brainstorm
+
+Brainstorming socrático antes de planejar.
+
+```bash
+/brainstorm add real-time notifications
+```
+
+Refina ideias em 5 fases: Descoberta, Esclarecimento, Teste de Premissas, Geração de Alternativas e Convergência. Apresenta o design em seções para aprovação do usuário.
+
+**Output:** Documento de design com premissas testadas, 3+ alternativas comparadas e direção aprovada pronta para `/plan`.
+
+---
+
+### /plan
+
+Planejar uma feature de forma adaptativa.
+
+```bash
+/plan add user authentication
+```
+
+**Output:** Lista de tarefas com avaliação de complexidade.
+
+---
+
+### /tdd
+
+Workflow de Test-Driven Development.
+
+```bash
+/tdd implement calculateDiscount
+```
+
+**Processo:**
+1. RED — Escrever teste falhando
+2. GREEN — Fazer passar
+3. REFACTOR — Melhorar o código
+
+Sem código sem teste falhando primeiro.
+
+---
+
+### /debug
+
+Debugging sistemático em 4 fases.
+
+```bash
+/debug the login shows 500 error
+```
+
+**Fases:** Gather → Analyze → Test → Fix
+
+---
+
+### /checkpoint
+
+Gerenciamento de checkpoints git.
+
+```bash
+/checkpoint create before-refactor
+/checkpoint list
+/checkpoint restore before-refactor
+```
+
+Nunca perca trabalho.
+
+---
+
+### /estimate
+
+Estimar custo em tokens antes de começar.
+
+```bash
+/estimate add payment integration
+```
+
+Saiba o custo antes de começar.
+
+---
+
+### /finish
+
+Finalizar branch com métricas.
+
+```bash
+/finish feature/auth
+```
+
+**Output:** Uso de tokens, arquivos alterados, status dos testes.
+
+---
+
+### /learn
+
+Modo de aprendizado — explica enquanto constrói.
+
+```bash
+/learn create a products module
+```
+
+Ótimo para onboarding.
+
+---
+
+### /verify
+
+Verificação antes de declarar trabalho como completo.
+
+```bash
+/verify
+```
+
+Força verificação baseada em prova — requer output de comando, não só "funciona". Use após completar qualquer tarefa para garantir corretude com evidência.
+
+**Output:** Relatório de verificação com artefatos de prova (resultados de teste, output de build, checks de runtime).
+
+---
+
+### /write-skill
+
+Criar ou melhorar skills usando metodologia TDD.
+
+```bash
+/write-skill my-new-skill
+```
+
+**Processo:**
+
+1. RED — Definir o que a skill deve fazer (spec falhando)
+2. GREEN — Escrever a skill para atender a spec
+3. REFACTOR — Melhorar clareza e estrutura
+
+RED-GREEN-REFACTOR aplicado a documentação e design de skills.
+
+---
+
+## Skills de Projeto
+
+### /health
+
+Score de saúde do projeto (0-100).
+
+```bash
+/health
+/health quick
+/health detailed
+```
+
+**Verifica:** Arquitetura, testes, types, segurança, performance.
+
+---
+
+### /remember
+
+Salvar uma decisão na memória de sessão.
+
+```bash
+/remember use Zustand for state management
+```
+
+Persiste entre sessões.
+
+---
+
+### /recall
+
+Consultar memória de sessão.
+
+```bash
+/recall state management
+/recall all
+```
+
+---
+
+### /tutorial
+
+Tutorial interativo.
+
+```bash
+/tutorial beginner
+/tutorial intermediate
+/tutorial advanced
+```
+
+---
+
+### /onboard
+
+Onboarding de codebase para novos desenvolvedores.
+
+```bash
+/onboard
+```
+
+Mapeia arquitetura, detecta convenções e analisa módulos-chave. Gera um guia para desenvolvedores com instruções de início.
+
+**Output:** Guia de onboarding com mapa de arquitetura, convenções e instruções de setup.
+
+---
+
+### /worktree
+
+Isolamento com git worktree para tarefas paralelas.
+
+```bash
+/worktree auth-refactor
+```
+
+Cria workspaces isolados para trabalhar em múltiplas features simultaneamente. Sem troca de branch, sem stash, sem conflitos.
+
+**Comandos:**
+
+- `/worktree [name]` — Criar workspace isolado
+- `git worktree list` — Listar worktrees ativos
+- `git worktree remove [path]` — Remover worktree
+
+**Output:** Worktree criado com dependências instaladas e testes baseline passando.
+
+---
+
+## Skills de Migração
+
+### /migrate-framework
+
+Migrar entre frameworks.
+
+```bash
+/migrate-framework react to vue src/components/Button.tsx
+```
+
+**Suporta:**
+- React → Vue
+- React → Svelte
+- Vue → React
+- Vue → Svelte
+- Vue 2 → Vue 3
+
+---
 
 ## Skills de Desenvolvimento
 
 ### /dev-create-module
 
-Cria um scaffold completo de modulo.
+Scaffold completo de módulo.
 
 ```bash
 /dev-create-module orders
 ```
 
-Pergunta sobre endpoints e tipo de UI, depois delega para agentes especializados para criar a estrutura completa.
-
-**Exemplo de saida:**
-
-```text
-src/modules/orders/
-├── types/orders.types.ts
-├── contracts/orders.contracts.ts
-├── adapters/order-adapter.ts
-├── services/order-service.ts
-├── stores/useOrdersStore.ts
-├── composables/useOrdersList.ts
-├── composables/useOrderMutations.ts
-├── components/OrderCard.vue
-├── components/OrderForm.vue
-├── views/OrdersView.vue
-└── __tests__/order-adapter.spec.ts
-```
+Cria: types, service, adapter, componentes, testes.
 
 ---
 
 ### /dev-create-component
 
-Cria um componente Vue com o template padrao de script setup.
+Criar um componente.
 
 ```bash
 /dev-create-component OrderCard
 ```
 
-Determina a localizacao (modulo vs compartilhado), aplica props/emits baseados em tipo, impoe < 200 linhas.
-
 ---
 
 ### /dev-create-service
 
-Cria a camada de dados completa para um recurso.
+Criar camada de serviço.
 
 ```bash
 /dev-create-service orders
 ```
 
-Cria 4 arquivos: `.types.ts` + `.contracts.ts` + `-adapter.ts` + `-service.ts`
+Cria: types, contracts, adapter, service.
+
+---
+
+### /dev-create-hook
+
+Criar um hook (React/Next.js).
+
+```bash
+/dev-create-hook useOrders
+```
 
 ---
 
 ### /dev-create-composable
 
-Cria um composable com integracao Vue Query.
+Criar um composable (Vue).
 
 ```bash
 /dev-create-composable useOrdersList
 ```
 
-Templates para queries, mutations e logica compartilhada.
-
 ---
 
 ### /dev-create-test
 
-Cria testes para um arquivo especificado.
+Criar testes para um arquivo.
 
 ```bash
 /dev-create-test src/modules/orders/adapters/order-adapter.ts
 ```
 
-**Prioridade de testes:**
-1. Adapters (maior prioridade — funcoes puras, faceis de testar)
-2. Composables (abordagem com mock de servico)
-3. Componentes (@vue/test-utils)
-
 ---
 
 ### /dev-generate-types
 
-Gera tipos, contratos e adapter a partir de um endpoint ou resposta JSON.
+Gerar types a partir de endpoint ou JSON.
 
 ```bash
 /dev-generate-types /v2/orders
 ```
 
-Trata a conversao snake_case → camelCase e cria adapters tanto de entrada quanto de saida.
-
 ---
 
-## Skills de Revisao
+## Skills de Review
 
 ### /review-review
 
-Revisao completa de codigo contra `ARCHITECTURE.md`.
+Revisão de código com veredito.
 
 ```bash
-/review-review
-# Ou com escopo:
 /review-review src/modules/orders/
 ```
 
-Executa verificacoes automatizadas (`tsc`, `eslint`, `vitest`, `build`) e revisao manual. Produz um relatorio com niveis de severidade.
-
-**Exemplo de saida:**
-
-```markdown
-## Review — src/modules/orders/
-
-### Scorecard
-| Dimensao | Nota | Observacoes |
-|----------|------|-------------|
-| Arquitetura | A | Todas as camadas seguem ARCHITECTURE.md |
-| Type Safety | B | Falta tipo de retorno em useOrdersList |
-| Seguranca | A | Sem v-html, inputs sanitizados |
-| Manutenibilidade | A | Arquivos pequenos, nomes claros |
-
-### Auto: tsc ✅ | ESLint ✅ | Build ✅ | Tests ✅
-
-### Violacoes
-- order-service.ts:12 — try/catch envolvendo chamada HTTP → remover, deixar error boundary tratar
-
-### Destaques
-- order-adapter.ts:5 — Parsing bidirecional limpo com cobertura total de tipos
-
-### Veredito: ⚠️ Com ressalvas — corrija a anotacao de tipo antes do merge
-```
+**Verifica:** Spec compliance, qualidade de código, arquitetura.
 
 ---
 
 ### /review-check-architecture
 
-Executa 14 verificacoes automatizadas de conformidade:
+Verificações de conformidade arquitetural.
 
 ```bash
 /review-check-architecture orders
 ```
 
-| # | Verificacao |
-|---|------------|
-| 1 | Servicos sem try/catch |
-| 2 | Servicos sem transformacoes |
-| 3 | Componentes com script setup |
-| 4 | Componentes com TypeScript |
-| 5 | Sem Options API |
-| 6 | Sem Mixins |
-| 7 | Sem estado de servidor no Pinia |
-| 8 | Uso de storeToRefs |
-| 9 | Sem tipos `any` |
-| 10 | Sem imports entre modulos |
-| 11 | Sem v-html |
-| 12 | Sem artefatos de debug (console.log, debugger) |
-| 13 | Queries possuem staleTime |
-| 14 | Componentes ≤ 200 linhas |
+14 verificações automatizadas.
 
 ---
 
 ### /review-fix-violations
 
-Encontra e corrige automaticamente violacoes de arquitetura.
+Auto-corrigir violações.
 
 ```bash
 /review-fix-violations orders
 ```
 
-Corrige por prioridade: 🔴 Critico → 🟡 Importante → 🟢 Melhorias. Valida apos cada correcao.
-
 ---
 
-## Skills de Migracao
+### /audit
 
-### /migration-migrate-component
-
-Migra um componente de Options API para script setup.
+Auditoria multi-domínio de código em uma passada.
 
 ```bash
-/migration-migrate-component src/views/OldPage.vue
+/audit src/modules/auth
 ```
 
-Analisa a estrutura atual, mapeia consumidores, converte para TypeScript completo, decompoe se > 200 linhas.
+**Cobre:** Segurança (OWASP), performance, arquitetura, dependências. Gera findings com severidade e passos de remediação.
+
+**Output:** Relatório de auditoria com findings categorizados, níveis de severidade e remediação acionável.
 
 ---
 
-### /migration-migrate-module
-
-Migra um modulo inteiro atraves de 6 fases.
-
-```bash
-/migration-migrate-module src/modules/legacy-orders/
-```
-
-Delega para `@migrator`. Inclui pontos de aprovacao entre as fases.
-
----
-
-## Skills de Documentacao
+## Skills de Documentação
 
 ### /docs-onboard
 
-Resumo rapido de modulo para onboarding de desenvolvedores.
+Resumo rápido de módulo.
 
 ```bash
 /docs-onboard orders
 ```
 
-Lista endpoints, componentes principais, mostra a separacao Pinia vs Vue Query, sinaliza padroes fora do padrao. Objetivo: entender um modulo em 2 minutos.
+Entenda qualquer módulo em 2 minutos.

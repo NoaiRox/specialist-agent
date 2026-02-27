@@ -208,7 +208,7 @@ if (filter === 'all' || filter === 'agents') {
   // Framework-agnostic agents
   const agentDirs = [
     path.join(ROOT, 'agents'),
-    ...['nextjs', 'react', 'vue', 'svelte'].flatMap(fw => [
+    ...['nextjs', 'react', 'vue', 'svelte', 'angular', 'astro', 'nuxt'].flatMap(fw => [
       path.join(ROOT, 'packs', fw, 'agents'),
       path.join(ROOT, 'packs', fw, 'agents-lite')
     ])
@@ -228,7 +228,7 @@ if (filter === 'all' || filter === 'skills') {
   // Generic skills
   const skillDirs = [
     path.join(ROOT, 'skills'),
-    ...['nextjs', 'react', 'vue', 'svelte'].map(fw =>
+    ...['nextjs', 'react', 'vue', 'svelte', 'angular', 'astro', 'nuxt'].map(fw =>
       path.join(ROOT, 'packs', fw, 'skills')
     )
   ];

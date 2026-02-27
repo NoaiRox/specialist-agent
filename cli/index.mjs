@@ -177,9 +177,12 @@ function detectFramework(pkgPath, availablePacks) {
   const pkg = JSON.parse(readFileSync(pkgPath, 'utf-8'))
   const deps = { ...pkg.dependencies, ...pkg.devDependencies }
 
-  // Order matters: next includes react, so check next first
+  // Order matters: nuxt includes vue, next includes react — check meta-frameworks first
+  if (deps['nuxt'] && availablePacks.includes('nuxt')) return 'nuxt'
   if (deps['next'] && availablePacks.includes('nextjs')) return 'nextjs'
   if ((deps['@sveltejs/kit'] || deps['svelte']) && availablePacks.includes('svelte')) return 'svelte'
+  if (deps['@angular/core'] && availablePacks.includes('angular')) return 'angular'
+  if (deps['astro'] && availablePacks.includes('astro')) return 'astro'
   if (deps['vue'] && availablePacks.includes('vue')) return 'vue'
   if (deps['react'] && availablePacks.includes('react')) return 'react'
 
@@ -782,7 +785,7 @@ async function main() {
     .filter(d => d.isDirectory())
     .map(d => d.name)
 
-  const packLabels = { vue: 'Vue 3', react: 'React', nextjs: 'Next.js', svelte: 'SvelteKit' }
+  const packLabels = { vue: 'Vue 3', react: 'React', nextjs: 'Next.js', svelte: 'SvelteKit', angular: 'Angular', astro: 'Astro', nuxt: 'Nuxt' }
 
   const detected = detectFramework(join(cwd, 'package.json'), packs)
   let framework

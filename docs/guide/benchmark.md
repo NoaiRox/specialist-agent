@@ -63,7 +63,7 @@ Full mode is ideal for:
 | Session memory | Remembers decisions |
 | Cost tracking | Token metrics per session |
 | Multi-platform | Claude Code, Cursor, VS Code, Windsurf, Codex |
-| Framework packs | Next.js, React, Vue, SvelteKit |
+| Framework packs | Next.js, React, Vue, SvelteKit, Angular, Astro, Nuxt |
 
 ## Example: User Authentication
 

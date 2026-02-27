@@ -4,7 +4,7 @@
 
 Your AI development team. 25+ specialized agents that build, review, debug, and ship production code.
 
-**Available packs:** Vue 3, React, Next.js, SvelteKit
+**Available packs:** Vue 3, React, Next.js, SvelteKit, Angular, Astro, Nuxt
 
 ## Auto-Dispatch Rules
 
@@ -39,6 +39,7 @@ Automatically delegate based on user intent:
 | Test strategies | `@tester` |
 | Codebase exploration | `@explorer` |
 | GDPR, LGPD compliance | `@legal` |
+| Impact analysis of changes | `@ripple` |
 
 ## Available Agents
 
@@ -82,6 +83,7 @@ Automatically delegate based on user intent:
 | `@devops` | Docker, K8s |
 | `@tester` | Test strategies |
 | `@legal` | GDPR, LGPD |
+| `@ripple` | Cascading effect analysis |
 
 ### Support Agents
 
@@ -112,6 +114,9 @@ Automatically delegate based on user intent:
 | `/worktree` | Git worktree isolation |
 | `/write-skill` | Create or improve skills |
 | `/tutorial` | Interactive tutorial |
+| `/codereview` | Multi-reviewer parallel code review |
+| `/commit` | Smart conventional commits |
+| `/lint` | Lint and auto-fix |
 | `/migrate-framework` | Migrate between frameworks |
 
 ## Security Rules
