@@ -1,196 +1,168 @@
-# Inicio Rapido
+# Início Rápido
 
-::: info Nota sobre Framework
-Os exemplos abaixo utilizam os padroes do **pack Vue 3**. Cada framework pack (React, Next.js, SvelteKit) fornece padroes equivalentes adaptados ao seu ecossistema. Veja [Framework Packs](/pt-BR/guide/introduction#como-os-packs-funcionam) para detalhes.
-:::
+Instale primeiro:
 
-Apos [instalar](/pt-BR/guide/installation) o Specialist Agent, abra o Claude Code no seu projeto. Aqui estao os fluxos de trabalho mais comuns.
-
-```mermaid
-graph LR
-    A["1. New Project"] --> B["2. Build Features"]
-    B --> C["3. Review Code"]
-    C --> D["4. Debug Issues"]
-    D --> E["5. Migrate Legacy"]
-
-    style A fill:#7c3aed,color:#fff
-    style B fill:#42b883,color:#fff
-    style C fill:#42b883,color:#fff
-    style D fill:#42b883,color:#fff
-    style E fill:#35495e,color:#fff
+```
+/plugin install specialist-agent
 ```
 
----
+Ou via CLI: `npx specialist-agent init`
 
-## 1. Iniciar um Novo Projeto
+Depois comece a usar os agentes:
 
-Use `@starter` para criar um projeto full-stack do zero — qualquer framework, backend e banco de dados.
+## 1. Analise Seu Projeto
 
 ```bash
-"Use @starter to create a task-manager app with Vue + Express + PostgreSQL"
+"Use @scout to analyze this project"
 ```
 
-O assistente do starter pergunta sobre nome do projeto, stack frontend/backend, banco de dados, autenticacao e estrutura — e entao gera tudo incluindo Docker compose e README.
+Receba recomendações de quais agentes usar.
 
-> **Saiba mais:** [Referencia do @starter](/pt-BR/reference/agents#starter-create-projects-from-scratch)
-
----
-
-## 2. Construir um Modulo de Funcionalidade
-
-Use `@builder` para criar modulos, componentes, servicos, composables ou testes. Ele le seu `ARCHITECTURE.md` e segue todas as convencoes automaticamente.
+## 2. Construa uma Feature
 
 ```bash
-# Modulo completo com CRUD
-"Use @builder to create a products module with CRUD for /v2/products"
-
-# Componente individual
-"Use @builder to create a ProductCard component with name, price, and image props"
-
-# Apenas camada de servico
-"Use @builder to create the service layer for /v3/orders"
+"Use @builder to create a products module with CRUD"
 ```
 
-Estrutura gerada:
+Cria: types, service, adapter, componentes, testes.
 
-```text
-src/modules/products/
-├── types/           ← Tipos da API + contratos do app
-├── adapters/        ← Transformacao API ↔ App
-├── services/        ← Chamadas HTTP puras
-├── composables/     ← useProductsList, useProductDetail
-├── components/      ← ProductsTable, ProductForm, ProductCard
-├── views/           ← ProductsView
-└── index.ts         ← Barrel export
-```
-
-> **Saiba mais:** [Construir um Modulo CRUD](/pt-BR/tutorials/crud-module) -- [Criar uma Camada de Servico](/pt-BR/tutorials/service-layer)
-
----
-
-## 3. Revisar Antes do PR
-
-Use `@reviewer` para validar o codigo em relacao a sua arquitetura antes de fazer merge.
+## 3. Revise Antes do Merge
 
 ```bash
-# Revisao completa com verificacoes automatizadas
 "Use @reviewer to review the products module"
-
-# Verificacao rapida de arquitetura
-/review-check-architecture products
 ```
 
-Exemplo de saida:
+Verifica: spec compliance, qualidade de código, arquitetura.
 
-```text
-## Review — src/modules/products/
-
-### Auto: tsc ✅ | ESLint ✅ | Build ✅ | Tests ✅
-
-### 🟢 Compliant
-  - services/products-service.ts: HTTP only, no try/catch ✅
-  - adapters/products-adapter.ts: Pure functions, bidirectional ✅
-
-## Verdict: ✅ Approved
-```
-
-> **Saiba mais:** [Referencia do @reviewer](/pt-BR/reference/agents#reviewer-review-analyze)
-
----
-
-## 4. Depurar um Problema
-
-Use `@doctor` para rastrear bugs atraves das camadas da arquitetura — do Component ate a API.
+## 4. Debug um Problema
 
 ```bash
-"Use @doctor to investigate why products aren't loading after search"
+"Use @doctor to investigate the 500 error on login"
 ```
 
-```mermaid
-sequenceDiagram
-    participant D as @doctor
-    participant C as Component
-    participant Q as Composable
-    participant A as Adapter
-    participant S as Service
+Rastreia: Component → State → Adapter → Service → API
 
-    D->>C: Check props & reactive bindings
-    D->>Q: Check queryKey reactivity & staleTime
-    Note right of D: Found! queryKey not reactive to search param
-    D->>Q: Fix: add search to queryKey computed
-    D-->>D: Root cause fixed ✅
-```
-
-> **Saiba mais:** [Referencia do @doctor](/pt-BR/reference/agents#doctor-investigate-bugs)
-
----
-
-## 5. Migrar Codigo Legado
-
-Use `@migrator` para converter Options API para script setup, JS para TS ou modernizar modulos completos em 6 fases.
+## 5. Planeje uma Feature Complexa
 
 ```bash
-# Componente individual
-"Use @migrator to convert OldProductsPage.vue to script setup"
-
-# Modulo completo (6 fases com pontos de aprovacao)
-"Use @migrator to migrate src/legacy/billing/ to the new architecture"
+/plan add user authentication with JWT
 ```
 
-Antes → Depois:
+Cria plano adaptativo baseado na complexidade.
 
-```vue
-<!-- Before: Options API -->
-<script>
-export default {
-  data() { return { products: [], loading: false } },
-  methods: { async fetchProducts() { ... } },
-  mounted() { this.fetchProducts() }
-}
-</script>
+## 6. Test-Driven Development
+
+```bash
+/tdd implement calculateDiscount function
 ```
 
-```vue
-<!-- After: Script Setup + Composable -->
-<script setup lang="ts">
-import { useProductsList } from '../composables/useProductsList'
+RED → GREEN → REFACTOR com evidência.
 
-const { items, isLoading } = useProductsList()
-</script>
+## 7. Salve o Progresso
+
+```bash
+/checkpoint create before-refactor
 ```
 
-> **Saiba mais:** [Migre Seu Projeto](/pt-BR/tutorials/migrate-project)
+Rollback se necessário.
 
----
+## Fluxos Comuns
 
-## Referencia Rapida de Skills
+### Novo Projeto
 
-Skills sao atalhos que voce invoca com `/skill-name`:
+```bash
+"Use @starter to create an app with Next.js + PostgreSQL"
+```
+
+### Design de API
+
+```bash
+"Use @api to design the orders API with OpenAPI spec"
+```
+
+### Performance
+
+```bash
+"Use @perf to optimize the dashboard"
+```
+
+### Segurança
+
+```bash
+"Use @security to audit for vulnerabilities"
+```
+
+### Banco de Dados
+
+```bash
+"Use @data to design the schema with Prisma"
+```
+
+### Pagamentos
+
+```bash
+"Use @finance to integrate Stripe"
+```
+
+### Migrações
+
+```bash
+"Use @migrator to modernize src/legacy/"
+```
+
+## 8. Auditoria Antes do Release
+
+```bash
+/audit src/modules/auth
+```
+
+Segurança + performance + arquitetura + dependências em uma única passada.
+
+## 9. Onboarding em um Codebase
+
+```bash
+/onboard
+```
+
+Mapeia arquitetura, detecta convenções, gera guia para desenvolvedores.
+
+## Skills
 
 | Skill | O que faz |
 |-------|-----------|
-| `/dev-create-module [name]` | Scaffold completo de modulo |
-| `/dev-create-component [name]` | Componente com script setup |
-| `/dev-create-service [resource]` | Types + adapter + service |
-| `/dev-create-composable [name]` | Composable com Vue Query |
-| `/dev-create-test [file]` | Testes para qualquer arquivo |
-| `/dev-generate-types [endpoint]` | Types a partir de endpoint/JSON |
-| `/review-review [scope]` | Revisao completa de codigo |
-| `/review-check-architecture [module]` | Conformidade com a arquitetura |
-| `/review-fix-violations [module]` | Correcao automatica de violacoes |
-| `/migration-migrate-component [file]` | Options → setup |
-| `/migration-migrate-module [path]` | Migracao completa de modulo |
-| `/docs-onboard [module]` | Visao geral do modulo em 2 minutos |
+| `/brainstorm` | Brainstorming socrático |
+| `/plan` | Planejar uma feature |
+| `/tdd` | Test-driven development |
+| `/debug` | Debugar um problema |
+| `/audit` | Auditoria multi-domínio |
+| `/onboard` | Onboarding de codebase |
+| `/verify` | Verificação antes de concluir |
+| `/checkpoint` | Salvar/restaurar progresso |
+| `/health` | Score de saúde do projeto |
+| `/estimate` | Estimar custo em tokens |
+| `/remember` | Salvar uma decisão |
+| `/recall` | Relembrar decisões |
+| `/finish` | Finalizar branch |
+| `/learn` | Aprender enquanto constrói |
+| `/worktree` | Isolamento com git worktree |
+| `/write-skill` | Criar skills customizadas |
+| `/tutorial` | Tutorial interativo |
+| `/migrate-framework` | Migrar entre frameworks |
 
-> **Saiba mais:** [Referencia de Skills](/pt-BR/reference/skills)
+## Native Hooks
 
----
+O Specialist Agent inclui 4 native hooks do Claude Code que rodam automaticamente:
 
-## Proximos Passos
+| Hook | O que faz |
+|------|-----------|
+| Security Guard | Bloqueia comandos perigosos antes da execução |
+| Auto-Dispatch | Sugere o melhor agente para seu prompt |
+| Session Context | Injeta estado do projeto no início da sessão |
+| Auto-Format | Formata arquivos após Write/Edit |
 
-- [Visao Geral da Arquitetura](/pt-BR/guide/architecture) — Entenda os padroes que seu codigo segue
-- [Camadas](/pt-BR/guide/layers) — Mergulho profundo nas camadas Service, Adapter, Composable
-- [Referencia de Agentes](/pt-BR/reference/agents) — Guia detalhado para cada agente
-- [Referencia de Skills](/pt-BR/reference/skills) — Todas as skills disponiveis
-- [Construir Formularios com Validacao](/pt-BR/tutorials/forms) — Zod + useMutation + tratamento de erros
-- [Paginacao + Filtros](/pt-BR/tutorials/pagination-filters) — Listas com busca, filtros e paginacao
+Instalados durante `npx specialist-agent init`. Veja [Referência de Hooks](/pt-BR/reference/hooks) para detalhes.
+
+## Próximo
+
+- [Agentes](/pt-BR/reference/agents) — Todos os 25+ agentes
+- [Skills](/pt-BR/reference/skills) — Todas as skills

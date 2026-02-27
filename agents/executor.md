@@ -110,6 +110,123 @@ git reset --hard restore-point/{timestamp}
 git tag -l "checkpoint/*" | sort -V
 ```
 
+## Quality Gates
+
+Mandatory checkpoints with evidence requirements. No gate can be skipped — if a gate fails, execution stops until resolved.
+
+### Gate 0: PRE-EXECUTION
+
+**When:** Before first task starts
+
+**Requires:**
+
+| Check | Command | Pass Criteria |
+| ----- | ------- | ------------- |
+| Clean git state | `git status --porcelain` | Empty output |
+| Plan exists | — | Task list parsed with dependencies |
+| Restore point | `git tag -l "restore-point/*"` | Tag created |
+| No blocking errors | `npx tsc --noEmit` | Zero errors (baseline clean) |
+
+**On Fail:** Do not start execution. Fix issues first or ask user.
+
+### Gate 1: TASK (after each task)
+
+**When:** After each individual task completes
+
+**Requires:**
+
+| Check | Command | Pass Criteria |
+| ----- | ------- | ------------- |
+| Files exist | `ls [expected files]` | All planned files present |
+| TypeScript clean | `npx tsc --noEmit` | Zero new errors |
+| Tests pass | `npm test -- --related [files]` | 0 failures |
+| Checkpoint saved | `git tag -l "checkpoint/task-N"` | Tag exists |
+
+**On Fail:** Attempt self-heal (max 2 tries). If still failing, rollback to previous checkpoint and ask user.
+
+### Gate 2: BATCH (after parallel batch)
+
+**When:** After parallel tasks merge
+
+**Requires:**
+
+| Check | Command | Pass Criteria |
+| ----- | ------- | ------------- |
+| No conflicts | `git diff --check` | No conflict markers |
+| Combined types clean | `npx tsc --noEmit` | Zero errors after merge |
+| All batch tests pass | `npm test` | 0 failures |
+| Merged checkpoint | `git tag -l "checkpoint/parallel-*"` | Tag exists |
+
+**On Fail:** Rollback entire batch. Retry tasks sequentially.
+
+### Gate 3: MID-EXECUTION (at 50%)
+
+**When:** After 50% of tasks are complete
+
+**Requires:**
+
+| Check | Command | Pass Criteria |
+| ----- | ------- | ------------- |
+| Progress on track | — | At least 50% tasks passed gates |
+| Cost within 2x estimate | — | Actual tokens within 2x estimated |
+| No accumulated warnings | — | Fewer than 5 self-heal events |
+| Full test suite | `npm test` | 0 failures |
+
+**On Fail:** Pause execution. Report progress and cost to user. Ask whether to continue, adjust plan, or abort.
+
+### Gate 4: FINAL
+
+**When:** After all tasks complete
+
+**Requires:**
+
+| Check | Command | Pass Criteria |
+| ----- | ------- | ------------- |
+| Full type check | `npx tsc --noEmit` | Zero errors |
+| Full test suite | `npm test` | 0 failures, 0 skipped |
+| Lint clean | `npm run lint` | Zero errors |
+| Build succeeds | `npm run build` | Exit code 0 |
+| No debug artifacts | `grep -rn "console.log" src/` | Zero matches (or intentional) |
+
+**On Fail:** Do NOT mark execution as complete. List failing checks with evidence. Suggest fixes.
+
+### Gate Evidence Format
+
+Every gate check produces evidence:
+
+```
+──── Gate 1: TASK (task-3) ────
+[PASS] Files exist: src/order.service.ts, src/order.types.ts
+[PASS] TypeScript: 0 errors
+[PASS] Tests: 4/4 passing
+[PASS] Checkpoint: checkpoint/task-3 created
+
+Gate 1 PASSED — proceeding to task 4
+```
+
+```
+──── Gate 4: FINAL ────
+[PASS] TypeScript: 0 errors
+[PASS] Tests: 42/42 passing
+[FAIL] Lint: 2 errors in src/order.service.ts
+[PASS] Build: success
+
+Gate 4 FAILED — 1 check failing
+Action: Fix lint errors, then re-run gate
+```
+
+### Gate Override
+
+Gates can ONLY be overridden by explicit user instruction:
+
+```
+User: "Skip lint gate, it's a known issue"
+→ Log: "Gate 4 LINT skipped by user override"
+→ Continue with warning in final summary
+```
+
+Never self-override. Never skip silently.
+
 ## Cost Tracking
 
 ### Per-Task Tracking

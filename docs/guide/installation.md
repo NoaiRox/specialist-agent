@@ -27,7 +27,7 @@ Works on any platform.
 
 ## What Happens
 
-1. Detects your framework (React, Vue, Next.js, SvelteKit)
+1. Detects your framework (React, Vue, Next.js, SvelteKit, Angular, Astro, Nuxt)
 2. Asks Full or Lite mode
 3. Installs agents and skills to `.claude/`
 4. Optionally installs native Claude Code hooks (security guard, auto-dispatch, session context, auto-format)

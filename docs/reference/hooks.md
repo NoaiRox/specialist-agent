@@ -147,7 +147,7 @@ Runs before `@planner` creates an implementation plan.
 
 1. **Checks architecture file** — looks for `ARCHITECTURE.md` in `docs/`, root, or `.claude/`
 2. **Checks git state** — reports current branch, uncommitted changes, and recent commits
-3. **Detects framework** — reads `package.json` to identify Vue, React, Next.js, SvelteKit, TypeScript, and test runners
+3. **Detects framework** — reads `package.json` to identify Vue, React, Next.js, SvelteKit, Angular, Astro, Nuxt, TypeScript, and test runners
 4. **Scans project size** — counts source files and classifies as Small/Medium/Large
 
 **Input:** Accepts feature name via `PLAN_FEATURE` env var or CLI argument.

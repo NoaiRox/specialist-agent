@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Specialist Agent
   text: Agentes de IA para Claude Code
-  tagline: 13 agentes especializados, 12 skills e framework packs — construa, revise, migre, depure e muito mais com qualquer stack.
+  tagline: 25+ agentes especializados, 18 skills e framework packs — construa, revise, depure e envie código de produção com qualquer stack.
   actions:
     - theme: brand
       text: Comece Aqui →
@@ -19,20 +19,26 @@ features:
     details: Crie novos projetos do zero — qualquer frontend + qualquer backend + qualquer banco de dados, totalmente configurado.
   - icon: 🏗️
     title: "@builder"
-    details: Crie modulos, componentes, servicos e testes — detecta automaticamente o que voce precisa a partir do seu framework pack.
+    details: Crie módulos, componentes, serviços e testes — detecta automaticamente o que você precisa a partir do seu framework pack.
   - icon: ✅
     title: "@reviewer"
-    details: Revise PRs, explore modulos e detecte problemas de performance em relacao a sua arquitetura.
+    details: Review 3-em-1 — spec compliance, qualidade de código e arquitetura em uma única passada.
   - icon: 🔄
     title: "@migrator"
-    details: Migre padroes legados para arquitetura moderna em 6 fases com aprovacao em cada etapa.
+    details: Migre padrões legados para arquitetura moderna em 6 fases com aprovação em cada etapa.
   - icon: 🔍
     title: "@doctor"
-    details: Rastreie bugs atraves de Component → State Logic → Adapter → Service → API para encontrar causas raiz.
+    details: Rastreie bugs através de Component → State → Adapter → Service → API para encontrar causas raiz.
+  - icon: 🧪
+    title: "@tdd"
+    details: "Test-Driven Development de verdade — RED → GREEN → REFACTOR com evidência. Sem código sem teste falhando primeiro."
+  - icon: 📋
+    title: "@planner + @executor"
+    details: "Planejamento adaptativo + execução com checkpoints git e rollback automático."
   - icon: 💼
     title: Agentes Especialistas
-    details: "@finance, @cloud, @security, @designer, @data, @devops, @tester — especialistas de dominio para qualquer projeto."
+    details: "@api, @finance, @cloud, @security, @designer, @data, @devops, @tester, @legal — especialistas de domínio para qualquer projeto."
   - icon: 🪶
     title: Framework Packs
-    details: "Next.js, React, SvelteKit, Vue 3 — agentes, skills e padroes de arquitetura para cada stack."
+    details: "Next.js, React, SvelteKit, Vue 3 — agentes, skills e padrões de arquitetura para cada stack."
 ---

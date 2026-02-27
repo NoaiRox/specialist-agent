@@ -1,7 +1,7 @@
 # Component Patterns
 
 ::: info Framework Note
-The examples below use the **Vue 3 pack** patterns. Each framework pack (React, Next.js, SvelteKit) provides equivalent patterns adapted to its ecosystem. See [Framework Packs](/guide/introduction#how-packs-work) for details.
+The examples below use the **Vue 3 pack** patterns. Each framework pack (React, Next.js, SvelteKit, Angular, Astro, Nuxt) provides equivalent patterns adapted to its ecosystem. See [Framework Packs](/guide/introduction#how-packs-work) for details.
 :::
 
 ## Standard SFC Template

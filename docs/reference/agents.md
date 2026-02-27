@@ -33,6 +33,7 @@ All agents include:
 | Refactoring | `@refactor` |
 | Dependencies | `@deps` |
 | Compliance | `@legal` |
+| Impact analysis | `@ripple` |
 | Explore codebase | `@explorer` or `@scout` |
 
 ---
@@ -47,7 +48,7 @@ Create projects from scratch.
 "Use @starter to create an e-commerce app with Next.js + PostgreSQL"
 ```
 
-**Supports:** Vue, React, Next.js, SvelteKit, Express, Fastify, PostgreSQL, MongoDB, and more.
+**Supports:** Vue, React, Next.js, SvelteKit, Angular, Astro, Nuxt, Express, Fastify, PostgreSQL, MongoDB, and more.
 
 ---
 
@@ -135,10 +136,11 @@ Plan features based on complexity.
 
 ### @executor
 
-Execute plans with checkpoints.
+Execute plans with checkpoints and quality gates.
 
 - Tracks progress and costs
 - Creates git checkpoints
+- 5 quality gates with mandatory evidence
 - Supports rollback
 
 ```bash
@@ -360,6 +362,19 @@ UI/UX implementation.
 ```
 
 **Covers:** Design tokens, responsive layouts, accessibility.
+
+---
+
+### @ripple
+
+Cascading effect analysis.
+
+```bash
+"Use @ripple to analyze the impact of renaming UserService"
+"Use @ripple before changing the API response shape"
+```
+
+**Analyzes:** Direct dependents, indirect dependents, test coverage, breaking changes. Produces safe change plans ordered by dependency.
 
 ---
 

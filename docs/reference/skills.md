@@ -21,6 +21,9 @@ Skills are shortcuts. Type `/skill-name` in Claude Code.
 | `/migrate-framework` | Migrate between frameworks |
 | `/verify` | Verification before completion (proof-based) |
 | `/write-skill` | Create or improve skills with TDD |
+| `/codereview` | Multi-reviewer parallel code review |
+| `/commit` | Smart conventional commits |
+| `/lint` | Lint and auto-fix |
 | `/audit` | Multi-domain code audit |
 | `/onboard` | Codebase onboarding for new developers |
 | `/worktree` | Git worktree isolation for parallel tasks |
@@ -267,6 +270,51 @@ Migrate between frameworks.
 - Vue → React
 - Vue → Svelte
 - Vue 2 → Vue 3
+
+---
+
+### /codereview
+
+Multi-reviewer parallel code review.
+
+```bash
+/codereview src/modules/auth
+/codereview src/modules/orders
+```
+
+Dispatches 3 concurrent review perspectives: **architecture** (@reviewer), **security** (@security), and **tests** (@tester). Consolidates findings with severity ratings and produces a unified verdict.
+
+**Output:** APPROVE / REQUEST_CHANGES / BLOCK with evidence from all 3 perspectives.
+
+---
+
+### /commit
+
+Smart conventional commits.
+
+```bash
+/commit
+/commit "add JWT refresh rotation"
+```
+
+Auto-detects type and scope from changed files. Validates for secrets, debug artifacts, and large files before committing. Follows conventional commits format.
+
+**Output:** `type(scope): description` commit with validation report.
+
+---
+
+### /lint
+
+Lint and auto-fix.
+
+```bash
+/lint
+/lint src/modules/auth
+```
+
+Auto-detects linter (Biome, ESLint, Deno) and formatter (Prettier). Runs auto-fix first, then reports remaining issues that need manual intervention.
+
+**Output:** Fixed count, remaining issues with file:line references.
 
 ---
 

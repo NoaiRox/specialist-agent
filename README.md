@@ -4,7 +4,7 @@
 
 <p align="center">
   <b>Your AI Development Team</b><br/>
-  25+ specialized agents that build, review, debug, and ship production code.
+  26+ specialized agents that build, review, debug, and ship production code.
 </p>
 
 [![CI](https://github.com/HerbertJulio/specialist-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/HerbertJulio/specialist-agent/actions/workflows/ci.yml)
@@ -18,8 +18,8 @@
 
 | | Specialist Agent | Others |
 |---|---|---|
-| **Agents** | 25+ specialized | 1-5 generic |
-| **Frameworks** | Next.js, React, Vue, SvelteKit | Generic only |
+| **Agents** | 26+ specialized | 1-5 generic |
+| **Frameworks** | Next.js, React, Vue, SvelteKit, Angular, Astro, Nuxt | Generic only |
 | **Cost** | Lite mode (60-80% cheaper) | Full cost always |
 | **Verification** | Proof-based (command output) | Trust-based ("it works") |
 | **Memory** | Cross-session persistence | None |
@@ -62,7 +62,7 @@ Done. Start building.
 | Agent | What it Does |
 |-------|--------------|
 | `@planner` | Plan features adaptively by complexity |
-| `@executor` | Execute with checkpoints and cost tracking |
+| `@executor` | Execute with checkpoints, gates, and cost tracking |
 | `@tdd` | Test-Driven Development (RED-GREEN-REFACTOR) |
 | `@debugger` | 4-phase systematic debugging |
 | `@pair` | Real-time pair programming |
@@ -87,6 +87,7 @@ Done. Start building.
 | `@legal` | GDPR, LGPD, CCPA compliance |
 | `@designer` | Design systems, accessibility |
 | `@tester` | Test strategies |
+| `@ripple` | Cascading effect analysis |
 
 ### Support
 
@@ -106,6 +107,9 @@ Done. Start building.
 | `/plan` | Plan a feature adaptively |
 | `/tdd` | Test-driven development cycle |
 | `/debug` | 4-phase systematic debugging |
+| `/codereview` | Multi-reviewer parallel code review (3 perspectives) |
+| `/commit` | Smart conventional commits with validation |
+| `/lint` | Lint and auto-fix (detects Biome/ESLint/Prettier) |
 | `/audit` | Multi-domain code audit (security + perf + architecture + deps) |
 | `/onboard` | Codebase onboarding for new developers |
 | `/checkpoint` | Save/restore progress with git |
@@ -131,8 +135,11 @@ Done. Start building.
 | **React** | React 18 + TypeScript + React Query |
 | **Vue 3** | Vue 3 + TypeScript + Pinia |
 | **SvelteKit** | SvelteKit 2 + TypeScript |
+| **Angular** | Angular 17+ Standalone + Signals |
+| **Astro** | Astro 4+ Islands + Content Collections |
+| **Nuxt** | Nuxt 3 + Auto-imports + Nitro |
 
-Each pack includes framework-specific agents, skills, and architecture patterns.
+7 framework packs, each with 4 specialized agents, 4 lite agents, and 12 skills.
 
 ---
 
