@@ -214,7 +214,7 @@ Tokens used: ~650 | Time: ~8s
 ══════════════════════════════════════════════
 ```
 
-## Handoff
+## Handoff Protocol
 
 After scout report:
 - User picks agents → those agents take over

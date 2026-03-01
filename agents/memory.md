@@ -232,7 +232,7 @@ Before creating code:
 5. Reference relevant decisions
 ```
 
-## Handoff
+## Handoff Protocol
 
 - @scout can read memory for context
 - @builder uses preferences

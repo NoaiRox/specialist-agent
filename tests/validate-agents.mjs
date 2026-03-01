@@ -81,7 +81,7 @@ function validateAgent(filePath) {
   totalFiles++;
   const { meta, content } = extractFrontmatter(filePath);
   const fileName = path.basename(filePath);
-  const isLite = fileName.includes('-lite');
+  const isLite = fileName.includes('-lite') || filePath.includes('agents-lite');
   let fileErrors = 0;
 
   // Required frontmatter
