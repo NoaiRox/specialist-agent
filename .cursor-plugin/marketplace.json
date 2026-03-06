@@ -1,9 +1,0 @@
-{
-  "plugins": [
-    {
-      "name": "specialist-agent",
-      "path": ".",
-      "description": "Your AI development team — 27+ specialized agents"
-    }
-  ]
-}
