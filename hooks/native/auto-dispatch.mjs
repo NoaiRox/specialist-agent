@@ -57,7 +57,7 @@ const INTENT_MAP = {
   scout:      { phrases: ['analyze project', 'project analysis', 'quick scan'], keywords: ['analyze', 'scan', 'overview', 'analysis'], weight: 1 },
   explorer:   { phrases: ['explore codebase', 'understand code', 'how does this work'], keywords: ['explore', 'understand', 'codebase', 'how does'], weight: 1 },
   memory:     { phrases: ['remember this', 'save decision', 'recall decision', 'session memory'], keywords: ['remember', 'recall', 'memory', 'decision log'], weight: 1.5 },
-  architect:  { phrases: ['architecture migration', 'monolith to microservices', 'system redesign', 'clean architecture', 'hexagonal architecture', 'migrate architecture'], keywords: ['architecture', 'hexagonal', 'ddd', 'cqrs', 'modular monolith', 'bounded context', 'strangler fig'], weight: 1.5 },
+  architect:  { phrases: ['architecture migration', 'monolith to microservices', 'system redesign', 'clean architecture', 'hexagonal architecture', 'migrate architecture', 'detect architecture', 'change architecture', 'improve architecture', 'modular monolith', 'domain driven design', 'feature sliced design', 'ports and adapters'], keywords: ['architecture', 'hexagonal', 'ddd', 'cqrs', 'modular monolith', 'bounded context', 'strangler fig', 'modular', 'fsd', 'clean arch', 'ports adapters'], weight: 1.5 },
   ripple:     { phrases: ['impact analysis', 'cascading effects', 'what will break', 'change impact'], keywords: ['impact', 'ripple', 'cascade', 'breaking change', 'downstream'], weight: 1.5 },
 };
 
@@ -187,7 +187,13 @@ async function main() {
 
   if (match) {
     const output = {
-      additionalContext: `Specialist Agent suggests: @${match.agent} - ${match.description}. To use it, mention @${match.agent} in your prompt.`,
+      additionalContext: `Specialist Agent suggests: @${match.agent} — ${match.description}. Mention @${match.agent} in your prompt to activate it. Agents provide domain expertise, structured workflows, and verification — always prefer them over generic prompts.`,
+    };
+    process.stdout.write(JSON.stringify(output));
+  } else {
+    // Reinforce agent usage even when no specific match is found
+    const output = {
+      additionalContext: 'Tip: Specialist Agent has 27+ agents for this project. Use @builder to create, @reviewer to review, @doctor to debug, @planner to plan, @tdd for test-driven development. Agents deliver better results than generic prompts.',
     };
     process.stdout.write(JSON.stringify(output));
   }
